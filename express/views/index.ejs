@@ -1,0 +1,268 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>简历分析系统</title>
+    <link rel="stylesheet" href="/stylesheets/layui/css/layui.css">
+    
+		<!-- <link rel="stylesheet" href="/public/layui/css/layui.css"> -->
+	</head>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">简历呈现页面</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"><a href="">单个简历可视化分析</a></li>
+					<li class="layui-nav-item"><a href="">所有简历可视化分析</a></li>
+					<li class="layui-nav-item"><a href="">待开发功能</a></li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">其它功能</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">功能1</a></dd>
+							<dd><a href="">功能2</a></dd>
+							<dd><a href="">功能3</a></dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+              <img src="/images/1.jpg" class="layui-nav-img">
+							管理员A
+						</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">基本资料</a></dd>
+							<dd><a href="">安全设置</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item"><a href="">退了</a></li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;">首页</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;" data-index="page-one.html">页面一</a></dd>
+								<dd><a href="javascript:;" data-index="page-two.html">页面二</a></dd>
+								<dd><a href="javascript:;" data-index="page-three.html">列表三</a></dd>
+								<dd><a href="">超链接</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">解决方案</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;">列表一</a></dd>
+								<dd><a href="javascript:;">列表二</a></dd>
+								<dd><a href="">超链接</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="">云市场</a></li>
+						<li class="layui-nav-item"><a href="">发布商品</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="layui-body">
+				<!-- 内容主体区域 -->
+				<!-- <div class="layadmin-tabsbody-item layui-show" style="width: 100%;height: 100%;">
+					<iframe src="index.html" frameborder="0" class="layadmin-iframe" style="width: 100%;height: 100%;"></iframe>
+				</div> -->
+                <div class="x-nav">
+                    <span class="layui-breadcrumb">
+                      <!-- <a href="/addMovie">增加影片信息</a> -->
+                      <!-- <a href="/messageBusiness">查看影片信息</a>
+                      <a href="/addSession">增加排片信息</a> -->
+                    </span>
+                  <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+                  <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+                 </div>
+              <div class="layui-fluid">
+               <div class="layui-row layui-col-space15">
+                  <div class="layui-col-md12">
+                      <div class="layui-card">
+                          <div class="layui-card-body ">
+                              <form class="layui-form layui-col-space5" role="searchSession" action="searchSession" method="POST">
+                                  <!-- <div class="layui-inline layui-show-xs-block">
+                                      <input class="layui-input"  autocomplete="off" placeholder="放映日期" name="show_day_query" id="start">
+                                  </div> -->
+                                  <!-- <div class="layui-inline layui-show-xs-block">
+                                      <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">
+                                  </div> -->
+                                  <div class="layui-inline layui-show-xs-block">
+                                      <input type="text" name="movieName"  placeholder="请输入简历关键字" autocomplete="off" class="layui-input">
+                                  </div>
+          
+                                  <div class="layui-inline layui-show-xs-block">
+                                      <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                                  </div>
+                              </form>
+                          </div>
+                          
+                          <div class="layui-card-body layui-table-body layui-table-main">
+                              <table class="layui-table layui-form">
+                                  <thead>
+                                  <tr>
+                                      <!-- <th>
+                                          <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
+                                      </th> -->
+                                      <th>简历编号</th>
+                                      <th>简历原件</th>
+                                      <th>简历大小</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                      <th>简历1</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody> 
+                                      
+          
+              
+                                          <tr>
+                                              
+                                              <td>
+                                               1
+                                              </td>
+                                              <td>
+                                               2
+                                              </td>
+                                                  <td>
+                                                  3 
+                                                 </td>
+                                                 <td>
+                                                  4
+                                                 </td>
+                                                 <td>
+                                                  5
+                                                 </td>
+              
+              
+              
+                                                 <td>
+                                                    
+                                            
+                                                   6
+                                                  
+              
+                                                  
+                                                  
+                                                  
+                                                   
+              
+              
+              
+                                                 </td>
+                                                 <td>
+                                                 7
+                                                 </td>
+                                                 <td>
+                                                  8
+                                                 </td>
+                                                 <td>
+                                                9
+                                                 </td>
+                                                 <td>
+                                                10
+                                                 </td>
+              
+                                                 <td>
+                                                 11
+                                                 </td>
+                                                 
+                                                 <td>
+                                                 12
+                                                 </td>
+                                              
+                                               
+          
+                                                  <td class="operation-menu">
+                                                    <button class="layui-btn layui-btn-xs delete" id="2" style="margin-right: 0;font-size:12px;" onclick="link_del(this,'1')">简历提取</button>
+                                                      
+                                                  </td>
+                                                  
+                                                  
+                                                 
+                                          </tr>
+                                   
+                                           
+                                           
+                                           
+                                        
+          
+                                  
+                                  
+                                  </tbody>
+          
+          
+                              </table>
+                          </div>
+          
+                          <div class="layui-card-body ">
+                              <div class="page">
+                                  <div>
+                                      <a class="prev" href="">&lt;&lt;</a>
+                                      <a class="num" href="">1</a>
+                                      <span class="current">2</span>
+                                      <a class="num" href="">3</a>
+                                      <a class="num" href="">489</a>
+                                      <a class="next" href="">&gt;&gt;</a></div>
+                               </div>
+                          </div>
+          
+                      </div>
+                  </div>
+              </div>
+          </div>
+			</div>
+
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© layui.com - 底部固定区域
+			</div>
+		</div>
+        
+		<script src="layui/layui.js"></script>
+		<script src="javascripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+				
+				//遍历左侧导航条的链接
+				$(".layui-side a").each(function(index,e){
+					//当点击链接时
+					$(e).click(function(){
+						//对应页面进行改变
+						$(".layui-body iframe").attr("src",$(this).attr("data-index"));
+					})
+				})
+			});
+		</script>
+	</body>
+</html>
+
